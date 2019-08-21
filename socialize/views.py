@@ -3,4 +3,8 @@ from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("This is working")
+    return render(request, "index.html")
+
+
+def signup(request):
+    return render(request, "signup.html")
