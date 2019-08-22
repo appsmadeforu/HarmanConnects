@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<link href="{% static 'base/css/signup.css' %}" rel="stylesheet" type="text/css"/>
+
+{% block content %}
+<div class="container signup">
+    <div class="form-group col-sm-offset-4 ">
+        <h2>Sign up</h2>
+        <form method="post" class="signup">
+            {% csrf_token %}
+<!--    {{ form|crispy }}-->
+            <div class="col-sm-12 mb-0">
+                {{ form.username|as_crispy_field }}
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-0">
+                    {{ form.first_name|as_crispy_field }}
+                </div>
+                <div class="col-sm-6 mb-0">
+                    {{ form.last_name|as_crispy_field }}
+                </div>
+            </div>
+            <div class="col-sm-12 mb-0">
+                {{ form.dob|as_crispy_field }}
+            </div>
+            <div class="col-sm-12 mb-0">
+                {{ form.emp_id|as_crispy_field }}
+            </div>
+            <div class="col-sm-12 mb-0">
+                {{ form.email|as_crispy_field }}
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-0">
+                    {{ form.password1|as_crispy_field }}
+                </div>
+                <div class="col-md-6 mb-0">
+                    {{ form.password2|as_crispy_field }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

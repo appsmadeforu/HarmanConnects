@@ -14,6 +14,7 @@ img.bg {
   top: 0;
   left: 0;
 }
+/* This includes css for login */
 .container{
 border-radius: 18px;
 text-align: center;
@@ -46,4 +47,14 @@ color: white;
 }
 li a {
     color: white;
+}
+/* login css ends here */
+
+/* Css for Signup.html */
+.container.signup{
+border-radius: 18px;
+text-align: center;
+padding-left:100px;
+padding-right:100px;
+padding-top:20px;
 }
