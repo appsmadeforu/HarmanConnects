@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load bootstrap3 %}
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -10,10 +11,9 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">HarmanConnects</a>
+      <a class="navbar-brand" href="{% url 'index' %}">HarmanConnect</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
         {% if user.is_authenticated %}
@@ -30,8 +30,8 @@
 <main>
     {% block content %}
     {% endblock %}
-
 </main>
+
 </body>
 
 

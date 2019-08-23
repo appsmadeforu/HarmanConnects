@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Employee, Project
+from .models import Employee, Project, Department
 
 
 class EmployeeAdmin(admin.ModelAdmin):
@@ -15,3 +15,9 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Project, ProjectAdmin)
+
+class DepartmentAdmin(admin.ModelAdmin):
+    list_display = ['empl']
+
+
+admin.site.register(Department, DepartmentAdmin)

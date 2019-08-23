@@ -3,8 +3,27 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  Hi {{ user.username }}!
+{% if user.is_authenticated %}
+<div class="container index">
+<div class="row">
+  <div class="profile-header-container fixed-top">
+    <div class="profile-header-img">
+      <img class="img-circle" src="{{ MEDIA_URL }}{{ employee.profile_pic }}">
+      <div class="rank-label-container">
+        <span class="label label-default rank-label">{{ user.username }}</span>
+      </div>
+    </div>
+  </div>
 
-  Click below to add project details
-<a href="{% url 'project' %}">Project Add</a>
+  <div class="container-fluid">
+    Hi {{ employee.firstname }} {{ employee.lastname }}!
+    Click below to add project details
+    <a href="{% url 'project' %}">Project Add</a>
+    This displays current user {{ employee.dob }} {{ employee.location }}
+  </div>
+</div>
+</div>
+{% else %}
+<h4> Please Login</h4>
+{% endif %}
 {% endblock %}

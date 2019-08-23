@@ -17,6 +17,9 @@ class Project(models.Model):
     proj_status = models.BooleanField(default=False)
     proj_GOC = models.CharField(max_length=250)
 
+    def __str__(self):
+        return '%s' % self.proj_name
+
 
 class Employee(User):
     emp_id = models.IntegerField(primary_key=True)
@@ -31,3 +34,13 @@ class Employee(User):
     about = models.TextField(null=True)
     interest = models.CharField(max_length=200, null=True)
     project = models.ManyToManyField(Project)
+
+
+class myEmployee(Employee, models.Model):
+    class Meta:
+        proxy = True
+        ordering = ["emp_id"]
+
+
+class Department(models.Model):
+    empl = models.ForeignKey(Employee, on_delete=models.CASCADE)
